@@ -19,6 +19,7 @@
   --alert100: "hsl(349, 57%, 50%)";
   --alert200: "hsl(349, 69%, 55%)";
   --sucess100: "hsl(162, 88%, 26%)";
+  --border-radius: 4px;
 }
 
 body {

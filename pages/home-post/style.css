@@ -1,0 +1,94 @@
+body {
+    background-color: #ffff;
+}
+
+header {
+    height: 100px;
+    padding: 28px;
+    margin: 0 auto;
+    background-color: #ffff;
+}
+
+.container-header {
+    width: 800px;
+    height: 44px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.container-header h3 {
+    font-size: 24px;
+}
+
+.header-user {
+    width: 215px;
+    padding: 0 0 0 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    align-items: center;
+    gap: 10px;
+    
+}
+
+main {
+    background-color: rgb(241, 240, 240);
+}
+
+main h5 {
+    width: 800px;
+    font-size: 20px;
+    margin: 0 auto;
+    padding: 15px 0;
+}
+
+.container-cards {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    background-color: #ffff;
+}
+
+.container-cards ul {
+    width: 800px;
+    height: 100%;
+    margin: 0 auto;
+    padding: 20px 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-user-data {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.post {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 30px;
+}
+

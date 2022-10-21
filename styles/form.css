@@ -1,0 +1,35 @@
+.login-form {
+    margin: 50px 0;
+    width: 391px;
+    height: 600px;
+}
+
+.register-form {
+    margin: 5px 0;
+    width: 391px;
+    height: 672px;
+}
+
+form {
+    padding: 44px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
+    border: 2px solid rgb(241, 239, 239);
+    border-radius: var(--border-radius);
+}
+
+.form h4 {
+    font-size: 20px;
+}
+
+.msg-error {
+    color: red;
+}
+
+.container-account {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}

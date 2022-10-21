@@ -1,0 +1,16 @@
+main {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.container-principal {
+    width: 800px;
+    margin: 0 auto;
+    display: flex;
+    gap: 40px;
+}
+
+
+
+
+

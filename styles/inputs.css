@@ -1,0 +1,58 @@
+.container-input {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.input {
+    width: 321px;
+    height: 44px;
+    border-radius: var(--border-radius);
+    background-color: rgb(245, 245, 245);
+    border: none;
+}
+
+.button-submit {
+    width: 321px;
+    height: 38px;
+    border-radius: var(--border-radius);
+    border: none;
+    background-color: rgb(72, 72, 235);
+    color: #ffff;
+}
+
+.button-nav {
+    width: 321px;
+    height: 38px;
+    border-radius: var(--border-radius);
+    background-color: rgb(201, 199, 199);
+    border: none;
+}
+
+.button-card {
+    width: 127px;
+    display: flex;
+    gap: 10px;
+   
+}
+
+.button-card-edit {
+    padding: 5px;
+    background-color: #ffff;
+    border: 1px solid rgb(221, 220, 220);
+    border-radius: var(--border-radius);
+}
+
+.button-card-delet {
+    padding: 5px;
+    color: gray;
+    background-color: rgb(241, 240, 240);
+    border: 1px solid rgb(241, 240, 240);
+    border-radius: var(--border-radius);
+}
+
+.button-open-publi {
+    border: none;
+    color: blue;
+    background-color: #ffff;
+}
