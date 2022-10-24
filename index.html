@@ -32,16 +32,16 @@
                     </div>
                 </section>
                 <section class="login-form">
-                    <form>
+                    <form id="formLogin">
                         <h4>Login</h4>
                         <div class="container-input">
                             <label for="">Email</label>
-                            <input type="email" class="input">
+                            <input name="email" type="email" class="input">
                         </div>
                         <div class="container-input">
                             <label for="">Senha</label>
-                            <input type="password" class="input">
-                            <p class="msg-error">A senha está incorreta</p>
+                            <input name="password" type="password" class="input">
+                            <p class="msg-error"></p>
                         </div>
                         <button class="button-submit">Acessar</button>
                         <div class="container-account">
@@ -53,7 +53,7 @@
                 </section>
                 </div>
     </main>
-    <script src="./pages/login/script.js"></script>
+    <script type="module" src="./pages/login/script.js"></script>
 </body>
 
 </html>
