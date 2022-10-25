@@ -1,3 +1,5 @@
+import { modalPost } from "../../scripts/modal-post.js";
+
 function renderPosts(element) {
   
     const li = document.createElement('li')
