@@ -17,10 +17,10 @@
     <main>
         <div class="container-principal">
             <section class="register-form">
-                <form>
+                <form id="form">
                     <div class="container-title">
                         <h4>Cadastro</h4>
-                        <button>Voltar para o login</button>
+                        <button class="button-voltar">Voltar para o login</button>
                     </div>
                     <div class="container-input">
                         <label for="">Usuário</label>
@@ -38,8 +38,8 @@
                         <label for="">Senha</label>
                         <input type="password" class="input">
                     </div>
-                    <button class="button-nav" >Cadastrar</button>
-                    <button class="button-submit">Voltar para o login</button>
+                    <button class="button-nav" type="submit">Cadastrar</button>
+                    <button class="button-submit button-voltar">Voltar para o login</button>
                 </form>
             </section>
             <section class="container-content">
@@ -59,7 +59,7 @@
                 </section>
                 </div>
     </main>
-    <script src="./script.js"></script>
+    <script type="module" src="./script.js"></script>
 </body>
 
 </html>
