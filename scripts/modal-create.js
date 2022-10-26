@@ -1,4 +1,5 @@
 import { criarPost } from "./api.js"
+import { getInfo } from "../pages/home-post/script.js"
 
 export function modalCreate() {
     const divModal = document.getElementById('modal')
@@ -36,6 +37,7 @@ export function modalCreate() {
             content: textarea.value
         }
         await criarPost(data)
+        await getInfo()
     })
 
     formDivButton.append(buttonCancelar, buttonPublicar)

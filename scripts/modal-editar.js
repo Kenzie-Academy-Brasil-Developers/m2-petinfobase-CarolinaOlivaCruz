@@ -1,13 +1,28 @@
+import { getPost } from "./api.js"
+import { modalPost } from "./modal-post.js"
 
-// export function showModalEdit(element) {
+export async function selecionar(id, functionSelecionar){
 
-//         const body = document.querySelector('#body')
-//         const article = document.querySelector('.post')
-//         const h2Title = document.querySelector('.Title')
-//         const pPost = document.querySelector('.pPost')
+    const posts = await getPost()
+    const returnPost = posts.find(element => element.id === id)
+    console.log(returnPost);
+    if(functionSelecionar == 'edit'){
+        showModalEdit(returnPost)
 
-//         article.append(h2Title, pPost)
-//         body.appendChild(article)
+    } else if(functionSelecionar == 'openPost') {
+        modalPost(returnPost)
+    }
+}
+
+function showModalEdit(element) {
+
+        const body = document.querySelector('#modal')
+        const article = document.querySelector('.post')
+        const h2Title = document.querySelector('.Title')
+        const pPost = document.querySelector('.pPost')
+
+        article.append(h2Title, pPost)
+        body.appendChild(article)
     
 
-// }
+}

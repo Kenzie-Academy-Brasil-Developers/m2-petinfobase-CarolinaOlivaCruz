@@ -1,4 +1,4 @@
-export function modalPost(){
+export function modalPost(element){
     const divModal = document.querySelector('#modal')
     const containerModal = document.createElement('div')
     containerModal.className = 'container-modal'

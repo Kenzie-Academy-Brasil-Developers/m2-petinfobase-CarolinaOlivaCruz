@@ -10,7 +10,7 @@ function buttonLogout() {
     button.addEventListener('click', () => {
         localStorage.clear()
         console.log('oi')
-        window.location.replace('../../index.html')
+        window.location.assign('../../index.html')
     })
     const create = document.getElementById('CreatePost')
     create.addEventListener('click', (e) => {
@@ -28,13 +28,13 @@ if (!token || token == undefined) {
     buttonLogout()
 }
 
-async function getInfo() {
+export async function getInfo() {
     const profile = await getProfile()
     const imgProfile = document.getElementById('imgProfile')
     imgProfile.src = profile.avatar
     const arrayPosts = await getPost()
 
-    renderizaCard(arrayPosts)
+    renderizaCard(arrayPosts, profile.id)
 }
 getInfo()
 

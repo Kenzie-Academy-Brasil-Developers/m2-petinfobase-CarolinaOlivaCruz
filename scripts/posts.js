@@ -1,7 +1,10 @@
-import { modalPost } from "../../scripts/modal-post.js";
+import { modalPost } from "../../scripts/modal-post.js"
+import { deletPost } from "./api.js"
+import { getInfo } from "../pages/home-post/script.js"
+import { selecionar } from "./modal-editar.js"
 
-function renderPosts(element) {
-  
+function renderPosts(element, idUser) {
+
     const li = document.createElement('li')
     li.className = 'card'
 
@@ -17,18 +20,9 @@ function renderPosts(element) {
     strong.innerText = element.user.username
     const pDate = document.createElement('p')
     pDate.innerText = element.createdAt
-    
+
     const divButton = document.createElement('div')
     divButton.className = 'button-card'
-    const buttonEdit = document.createElement('button')
-    buttonEdit.className = 'button-card-edit'
-    buttonEdit.innerText = 'Editar'
-    buttonEdit.addEventListener('click', () => {
-        showModalEdit(element)
-    })
-    const buttonDelet = document.createElement('button')
-    buttonDelet.className = 'button-card-delet'
-    buttonDelet.innerText = 'Deletar'
 
     const article = document.createElement('article')
     article.className = 'post'
@@ -40,13 +34,33 @@ function renderPosts(element) {
     const buttonOpenPubli = document.createElement('button')
     buttonOpenPubli.className = 'button-open-publi'
     buttonOpenPubli.innerText = 'Acessar publicação'
-    buttonOpenPubli.addEventListener('click', () => {
-        modalPost()
+    buttonOpenPubli.addEventListener('click', async(e) => {
+        e.preventDefault()
+        await selecionar(element.id, 'openPost')
     })
+    if (element.user.id == idUser) {
+        const buttonEdit = document.createElement('button')
+        buttonEdit.className = 'button-card-edit'
+        buttonEdit.innerText = 'Editar'
+        buttonEdit.addEventListener('click', async (e) => {
+            e.preventDefault()
+            
+            await selecionar(element.id, 'edit')
+        })
+        const buttonDelet = document.createElement('button')
+        buttonDelet.className = 'button-card-delet'
+        buttonDelet.innerText = 'Deletar'
+        buttonDelet.addEventListener('click', async (e) => {
+            e.preventDefault()
+            await deletPost(element.id)
+            await getInfo()
+        })
+        divButton.append(buttonEdit, buttonDelet)
+    }
 
     pName.appendChild(strong)
     divUserData.append(imgPost, pName, pDate)
-    divButton.append(buttonEdit, buttonDelet)
+
     sectionTop.append(divUserData, divButton)
     article.append(h2Title, pPost, buttonOpenPubli)
     li.append(sectionTop, article)
@@ -55,10 +69,11 @@ function renderPosts(element) {
 }
 
 
-export function renderizaCard(array) {
-    
+export function renderizaCard(array, id) {
+    console.log(array)
     const ulCards = document.getElementById('listCards')
+    ulCards.innerText = ''
     array.reverse().forEach(element => {
-        ulCards.appendChild(renderPosts(element))
-    });   
+        ulCards.appendChild(renderPosts(element, id))
+    });
 }

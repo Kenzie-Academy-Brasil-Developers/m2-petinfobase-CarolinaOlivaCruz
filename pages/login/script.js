@@ -1,5 +1,6 @@
 import { login } from '../../scripts/api.js'
 const token = localStorage.getItem('token')
+console.log(token);
 if (token) {
   window.location.assign('./pages/home-post/index.html')
 }
@@ -10,22 +11,22 @@ function validLogin() {
 
   formLogin.addEventListener('submit', async (event) => {
     event.preventDefault()
-
+  
     const inputs = document.querySelectorAll('.input')
-    
-    
-      let object = {
-        email: inputs[0].value,
-        password: inputs[1].value
-      }
-      
-      const retornoLogin = await login(object)
-      if (retornoLogin != undefined) {
-        const msgError = document.querySelector('.msg-error')
-        msgError.innerText = retornoLogin
-      }
-    
-    else{
+
+
+    let object = {
+      email: inputs[0].value,
+      password: inputs[1].value
+    }
+
+    const retornoLogin = await login(object)
+    if (retornoLogin != undefined) {
+      const msgError = document.querySelector('.msg-error')
+      msgError.innerText = retornoLogin
+    }
+
+    else {
       inputs[0].value = ''
       inputs[1].value = ''
     }

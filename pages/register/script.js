@@ -19,7 +19,7 @@ function register() {
     buttonVoltar.forEach(el => {
         console.log(el)
         el.addEventListener('click', ()=>{
-            window.location.replace('../../index.html')
+            window.location.assign('../../index.html')
         })
     })
 }

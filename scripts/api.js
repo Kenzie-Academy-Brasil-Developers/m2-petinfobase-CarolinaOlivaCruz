@@ -36,6 +36,9 @@ export async function login(data) {
         localStorage.setItem('token', objToken.token)
         if(objToken.token){
             window.location.assign('./pages/home-post/index.html')
+        } 
+        else{
+            throw new err
         }
     }
     catch (err) {
@@ -78,7 +81,25 @@ export async function getProfile() {
         const responseJson = response.json()
         return responseJson
     }
-    catch {
-        console.log('deu ruim')
+    catch(err) {
+        console.log(err)
     }
 }
+
+
+export async function deletPost(id){
+    try {
+        const response = await fetch(`${baseUrl}posts/${id}`, {
+            method: 'DELETE',
+            headers: headers
+        })
+        const responseJson = response.json()
+        return responseJson
+    }
+    
+    catch(err) {
+        console.log(err)
+    }
+
+}
+
