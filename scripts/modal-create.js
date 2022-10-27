@@ -26,6 +26,7 @@ export function modalCreate() {
     titleInput.placeholder = 'Digite o título aqui...'
     titleInput.id = 'titleInput'
     titleInput.type = 'text'
+    titleInput.required = 'true'
 
     const labelTextarea = document.createElement('label')
     labelTextarea.innerText = 'Conteúdo do post'

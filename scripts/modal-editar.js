@@ -1,28 +1,34 @@
 import { getPost } from "./api.js"
 import { modalPost } from "./modal-post.js"
 
-export async function selecionar(id, functionSelecionar){
+export async function selecionar(id, functionSelecionar) {
 
     const posts = await getPost()
     const returnPost = posts.find(element => element.id === id)
     console.log(returnPost);
-    if(functionSelecionar == 'edit'){
+    if (functionSelecionar == 'edit') {
         showModalEdit(returnPost)
 
-    } else if(functionSelecionar == 'openPost') {
+    } else if (functionSelecionar == 'openPost') {
         modalPost(returnPost)
     }
 }
 
 function showModalEdit(element) {
+console.log(element);
+    const divModal = document.querySelector('#modal')
+    const containerModal = document.createElement('div')
+    containerModal.className = 'container-modal'
+    const sectionForm = document.createElement('section')
+    const h2Title = document.querySelector('.Title')
+    const buttonClose = document.createElement('button')
+    buttonClose.innerText = 'X'
+    buttonClose.className = 'button-close'
+    buttonClose.addEventListener('click', () => divModal.innerText = '')
+    const pPost = document.querySelector('.pPost')
 
-        const body = document.querySelector('#modal')
-        const article = document.querySelector('.post')
-        const h2Title = document.querySelector('.Title')
-        const pPost = document.querySelector('.pPost')
-
-        article.append(h2Title, pPost)
-        body.appendChild(article)
-    
+    sectionForm.append(h2Title, buttonClose, pPost)
+    containerModal.appendChild(sectionForm)
+    divModal.appendChild(containerModal)
 
 }
