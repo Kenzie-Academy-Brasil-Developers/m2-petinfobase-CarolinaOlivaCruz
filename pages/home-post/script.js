@@ -9,13 +9,11 @@ function buttonLogout() {
     const button = document.getElementById('buttonLogout')
     button.addEventListener('click', () => {
         localStorage.clear()
-        console.log('oi')
         window.location.assign('../../index.html')
     })
     const create = document.getElementById('CreatePost')
     create.addEventListener('click', (e) => {
         e.preventDefault()
-        console.log('oi');
         modalCreate()
     })
 }

@@ -23,21 +23,7 @@ function renderPosts(element, idUser) {
 
     const divButton = document.createElement('div')
     divButton.className = 'button-card'
-
-    const article = document.createElement('article')
-    article.className = 'post'
-    const h2Title = document.createElement('h2')
-    h2Title.innerText = element.title
-    const pPost = document.createElement('p')
-    pPost.className = 'pPost'
-    pPost.innerText = element.content
-    const buttonOpenPubli = document.createElement('button')
-    buttonOpenPubli.className = 'button-open-publi'
-    buttonOpenPubli.innerText = 'Acessar publicação'
-    buttonOpenPubli.addEventListener('click', async(e) => {
-        e.preventDefault()
-        await selecionar(element.id, 'openPost')
-    })
+    
     if (element.user.id == idUser) {
         const buttonEdit = document.createElement('button')
         buttonEdit.className = 'button-card-edit'
@@ -58,9 +44,23 @@ function renderPosts(element, idUser) {
         divButton.append(buttonEdit, buttonDelet)
     }
 
+    const article = document.createElement('article')
+    article.className = 'post'
+    const h2Title = document.createElement('h2')
+    h2Title.innerText = element.title
+    const pPost = document.createElement('p')
+    pPost.className = 'pPost'
+    pPost.innerText = element.content
+    const buttonOpenPubli = document.createElement('button')
+    buttonOpenPubli.className = 'button-open-publi'
+    buttonOpenPubli.innerText = 'Acessar publicação'
+    buttonOpenPubli.addEventListener('click', async(e) => {
+        e.preventDefault()
+        await selecionar(element.id, 'openPost')
+    })
+
     pName.appendChild(strong)
     divUserData.append(imgPost, pName, pDate)
-
     sectionTop.append(divUserData, divButton)
     article.append(h2Title, pPost, buttonOpenPubli)
     li.append(sectionTop, article)
@@ -70,7 +70,7 @@ function renderPosts(element, idUser) {
 
 
 export function renderizaCard(array, id) {
-    console.log(array)
+   
     const ulCards = document.getElementById('listCards')
     ulCards.innerText = ''
     array.reverse().forEach(element => {

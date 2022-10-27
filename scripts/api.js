@@ -21,7 +21,6 @@ export async function registerPost(data) {
 
 
 export async function login(data) {
-
     try {
         const response = await fetch(`${baseUrl}login`, {
             method: 'POST',
@@ -62,7 +61,6 @@ export async function getPost() {
 }
 
 export async function criarPost(data) {
-
     const response = await fetch(`${baseUrl}posts/create`, {
         method: 'POST',
         headers: headers,
