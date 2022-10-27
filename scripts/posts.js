@@ -47,6 +47,7 @@ function renderPosts(element, idUser) {
     const article = document.createElement('article')
     article.className = 'post'
     const h2Title = document.createElement('h2')
+    h2Title.className = 'titlePost'
     h2Title.innerText = element.title
     const pPost = document.createElement('p')
     pPost.className = 'pPost'

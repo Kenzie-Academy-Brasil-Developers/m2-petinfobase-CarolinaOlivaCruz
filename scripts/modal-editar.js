@@ -15,12 +15,12 @@ export async function selecionar(id, functionSelecionar) {
 }
 
 function showModalEdit(element) {
-console.log(element);
+
     const divModal = document.querySelector('#modal')
     const containerModal = document.createElement('div')
     containerModal.className = 'container-modal'
     const sectionForm = document.createElement('section')
-    const h2Title = document.querySelector('.Title')
+    const h2Title = document.querySelector('.titlePost')
     const buttonClose = document.createElement('button')
     buttonClose.innerText = 'X'
     buttonClose.className = 'button-close'
