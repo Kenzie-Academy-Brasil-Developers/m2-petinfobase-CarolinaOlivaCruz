@@ -2,11 +2,12 @@ import { getPost } from "./api.js"
 import { modalPost } from "./modal-post.js"
 
 export async function selecionar(id, functionSelecionar) {
-
+    
     const posts = await getPost()
     const returnPost = posts.find(element => element.id === id)
     console.log(returnPost);
     if (functionSelecionar == 'edit') {
+        console.log(returnPost)
         showModalEdit(returnPost)
 
     } else if (functionSelecionar == 'openPost') {
@@ -20,15 +21,20 @@ function showModalEdit(element) {
     const containerModal = document.createElement('div')
     containerModal.className = 'container-modal'
     const sectionForm = document.createElement('section')
+    
+    
     const h2Title = document.querySelector('.titlePost')
+    h2Title.innerText = element.title
     const buttonClose = document.createElement('button')
     buttonClose.innerText = 'X'
     buttonClose.className = 'button-close'
     buttonClose.addEventListener('click', () => divModal.innerText = '')
     const pPost = document.querySelector('.pPost')
+    pPost.innerText = element.content
 
     sectionForm.append(h2Title, buttonClose, pPost)
     containerModal.appendChild(sectionForm)
     divModal.appendChild(containerModal)
 
+    
 }

@@ -33,10 +33,10 @@ export async function login(data) {
         const objToken = await response.json()
 
         localStorage.setItem('token', objToken.token)
-        if(objToken.token){
+        if (objToken.token) {
             window.location.assign('./pages/home-post/index.html')
-        } 
-        else{
+        }
+        else {
             throw new err
         }
     }
@@ -61,13 +61,17 @@ export async function getPost() {
 }
 
 export async function criarPost(data) {
-    const response = await fetch(`${baseUrl}posts/create`, {
-        method: 'POST',
-        headers: headers,
-        body: JSON.stringify(data)
-    }).then(res => res.json)
-        .then(res => console.log(res))
-    return response
+    
+        const response = await fetch(`${baseUrl}posts/create`, {
+            method: 'POST',
+            headers: headers,
+            body: JSON.stringify(data)
+        })
+        const respJson = response.json()
+        console.log(respJson)
+ 
+        return respJson
+   
 }
 
 export async function getProfile() {
@@ -79,13 +83,13 @@ export async function getProfile() {
         const responseJson = response.json()
         return responseJson
     }
-    catch(err) {
+    catch (err) {
         console.log(err)
     }
 }
 
 
-export async function deletPost(id){
+export async function deletPost(id) {
     try {
         const response = await fetch(`${baseUrl}posts/${id}`, {
             method: 'DELETE',
@@ -94,10 +98,27 @@ export async function deletPost(id){
         const responseJson = response.json()
         return responseJson
     }
-    
-    catch(err) {
+
+    catch (err) {
         console.log(err)
     }
 
 }
+
+
+
+function atualizaPost(id) {
+    try {
+        const patchApi = fetch(`${baseUrl}posts/ee9141ab-43fb-403d-ba53-520b0b2eb31a`, {
+            method: 'PATCH',
+            headers: headers,
+            body: JSON.stringify(id)
+        })
+        const responseJson = patchApi.json()
+    }
+    catch (err) {
+        console.log(err)
+    }
+}
+
 

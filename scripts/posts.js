@@ -1,7 +1,6 @@
 import { modalPost } from "../../scripts/modal-post.js"
-import { deletPost } from "./api.js"
-import { getInfo } from "../pages/home-post/script.js"
 import { selecionar } from "./modal-editar.js"
+import { modalDelete } from "./modal-delete.js"
 
 function renderPosts(element, idUser) {
 
@@ -20,26 +19,23 @@ function renderPosts(element, idUser) {
     strong.innerText = element.user.username
     const pDate = document.createElement('p')
     pDate.innerText = element.createdAt
-
     const divButton = document.createElement('div')
     divButton.className = 'button-card'
-    
+
     if (element.user.id == idUser) {
         const buttonEdit = document.createElement('button')
         buttonEdit.className = 'button-card-edit'
         buttonEdit.innerText = 'Editar'
         buttonEdit.addEventListener('click', async (e) => {
             e.preventDefault()
-            
             await selecionar(element.id, 'edit')
         })
         const buttonDelet = document.createElement('button')
         buttonDelet.className = 'button-card-delet'
         buttonDelet.innerText = 'Deletar'
-        buttonDelet.addEventListener('click', async (e) => {
+        buttonDelet.addEventListener('click',  (e) => {
             e.preventDefault()
-            await deletPost(element.id)
-            await getInfo()
+             modalDelete(element.id)
         })
         divButton.append(buttonEdit, buttonDelet)
     }
@@ -55,7 +51,7 @@ function renderPosts(element, idUser) {
     const buttonOpenPubli = document.createElement('button')
     buttonOpenPubli.className = 'button-open-publi'
     buttonOpenPubli.innerText = 'Acessar publicação'
-    buttonOpenPubli.addEventListener('click', async(e) => {
+    buttonOpenPubli.addEventListener('click', async (e) => {
         e.preventDefault()
         await selecionar(element.id, 'openPost')
     })
@@ -71,7 +67,7 @@ function renderPosts(element, idUser) {
 
 
 export function renderizaCard(array, id) {
-   
+
     const ulCards = document.getElementById('listCards')
     ulCards.innerText = ''
     array.reverse().forEach(element => {
