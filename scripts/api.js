@@ -102,19 +102,20 @@ export async function deletPost(id) {
     catch (err) {
         console.log(err)
     }
-
 }
 
 
 
-function atualizaPost(id) {
+export async function atualizaPost(id, data) {
+    console.log(id)
     try {
-        const patchApi = fetch(`${baseUrl}posts/ee9141ab-43fb-403d-ba53-520b0b2eb31a`, {
+        const patchApi = await fetch(`${baseUrl}posts/${id}`, {
             method: 'PATCH',
             headers: headers,
-            body: JSON.stringify(id)
+            body: JSON.stringify(data)
         })
         const responseJson = patchApi.json()
+        return responseJson
     }
     catch (err) {
         console.log(err)

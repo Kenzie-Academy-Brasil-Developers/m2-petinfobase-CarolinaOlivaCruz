@@ -69,7 +69,7 @@ function renderPosts(element, idUser) {
 export function renderizaCard(array, id) {
 
     const ulCards = document.getElementById('listCards')
-    ulCards.innerText = ''
+    ulCards.innerHTML = ''
     array.reverse().forEach(element => {
         ulCards.appendChild(renderPosts(element, id))
     });
